@@ -7,13 +7,27 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+struct Character {
+    let name: String
+    let description: String
+    
+}
+class CharactersListViewController: UIViewController, UITableViewDataSource,UITableViewDelegate {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
+    
+    var characters: [Character] = []
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        tableView.dataSource = self
+        tableView.delegate = self
+        fetchCharacterData()
     }
-
-
+    func fetchCharacterData() {
+        let url = URL(string: " https://")
+    }
 }
-
