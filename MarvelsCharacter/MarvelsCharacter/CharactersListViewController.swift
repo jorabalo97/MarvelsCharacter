@@ -5,29 +5,24 @@
 //  Created by Jorge Abalo Dieste on 8/11/23.
 //
 
-import UIKit
-
-struct Character {
-    let name: String
-    let description: String
+import SwiftUI
+struct ContentView: View {
+    private var viewModel: viewModel = viewModel()
     
+    var body: some View {
+        VStack {
+            Text("URLSession con Swift")
+                .padding()
+            Button("Crear peticion HTTP") {
+                viewModel.executeAPI()
+            }
+        }
+    }
 }
-class CharactersListViewController: UIViewController, UITableViewDataSource,UITableViewDelegate {
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
-    }
-    
-    var characters: [Character] = []
-    
-    @IBOutlet weak var tableView: UITableView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.dataSource = self
-        tableView.delegate = self
-        fetchCharacterData()
-    }
-    func fetchCharacterData() {
-        let url = URL(string: " https://")
+
+struct ContentView_Previews: PreviewProvider {
+  
+    static var preview: some View {
+        ContentView()
     }
 }
